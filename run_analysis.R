@@ -42,10 +42,11 @@ run_analysis <- function () {
   
   # calculate avg of each activity/subject combination
   tidyDataSet <- sapply(avgDataSet[,2:1714], mean)
-
-  shortLabels <- c(paste(fullLabels[,1],"-",fullLabels[,2]), fullLabels[,3:1715])
-  # write metrics tidy dataset
-  write.table(tidyDataSet,"./tidy-mean.txt", quote=FALSE, col.names=shortLabels)
+  
+  # write metrics tidy dataset to file with labels
+  shortLabels <- c(paste(fullLabels[1],"-",fullLabels[2]), fullLabels[3:1715])
+  tidyDataSet <- rbind(tidyDataSet,shortLabels)
+  write.table(tidyDataSet,"./tidy-mean.txt", quote=FALSE) #, col.names=shortLabels)
 }
 
 # The goal is to prepare tidy data that can be used for later analysis. 
