@@ -1,53 +1,46 @@
 # Getting and Cleaning Data 016
-# Course project to product a tidy data set with friendly label names, by merging raw data in files.
 # CodeBook.md
+# Objective: Course project to produce a tidy data set with friendly label names, by merging raw data in files, and taking the average of the test data metrics
+# Purpose of CodeBook.md: Describes the variables, the data, and work performed to clean up the data.
 
-# Purpose: Describes the variables, the data, and work performed to clean up the data.
+# Steps taken
+# 1. Merged test and train data into one dataset: subjects, activities, metrics
+# 2. Wrote the merged data into a file "tidy-merged.txt"
+# 3. Calculated the average of each measurement in the file, columns 3-1715
+# 4. Wrote the average out to another file "tidy-mean.txt"
 
-# Tidy Data - mean
-# Columns: id, mean
-
-# Tidy Data - merging files
-# 1. Merged test and train data into one dataset
-# 2. Merged subjects, activities and data on the subjects' activities into one dataset
-# 3. Created "merged" directory to contain resultant data
-# 4. Wrote the merged data into a file "tidy-merged.txt" in the "merged" directory
-# 5. Calculated the average of each measurement in the file, columns 3-691
-# 6. Wrote the average out to another file "tidy-metrics.txt" in the "merged" directory
-
-Columns
-1 Subject id
-2 Activity id
-3 tBodyAcc-mean()-X
-4 tBodyAcc-mean()-Y
-5 tBodyAcc-mean()-Z
-6 tBodyAcc-std()-X
-7 tBodyAcc-std()-Y
-8 tBodyAcc-std()-Z
-9 tBodyAcc-mad()-X
-10 tBodyAcc-mad()-Y
-11 tBodyAcc-mad()-Z
-12 tBodyAcc-max()-X
-13 tBodyAcc-max()-Y
-14 tBodyAcc-max()-Z
-15 tBodyAcc-min()-X
-16 tBodyAcc-min()-Y
-15 tBodyAcc-min()-Z
-16 tBodyAcc-sma()
-17 tBodyAcc-energy()-X
-18 tBodyAcc-energy()-Y
-19 tBodyAcc-energy()-Z
-20 tBodyAcc-iqr()-X
-21 tBodyAcc-iqr()-Y
-22 tBodyAcc-iqr()-Z
-23 tBodyAcc-entropy()-X
-24 tBodyAcc-entropy()-Y
-25 tBodyAcc-entropy()-Z
-26 tBodyAcc-arCoeff()-X,1
-27 tBodyAcc-arCoeff()-X,2
-28 tBodyAcc-arCoeff()-X,3
-29 tBodyAcc-arCoeff()-X,4
-30 tBodyAcc-arCoeff()-Y,1
+# Columns of tidy-mean.txt
+1 Subject id/Activity id in the from SubjectId-ActivityId
+2 tBodyAcc-mean()-X
+3 tBodyAcc-mean()-Y
+4 tBodyAcc-mean()-Z
+5 tBodyAcc-std()-X
+6 tBodyAcc-std()-Y
+7 tBodyAcc-std()-Z
+8 tBodyAcc-mad()-X
+9 tBodyAcc-mad()-Y
+10 tBodyAcc-mad()-Z
+11 tBodyAcc-max()-X
+12 tBodyAcc-max()-Y
+13 tBodyAcc-max()-Z
+14 tBodyAcc-min()-X
+15 tBodyAcc-min()-Y
+16 tBodyAcc-min()-Z
+17 tBodyAcc-sma()
+18 tBodyAcc-energy()-X
+19 tBodyAcc-energy()-Y
+20 tBodyAcc-energy()-Z
+21 tBodyAcc-iqr()-X
+22 tBodyAcc-iqr()-Y
+23 tBodyAcc-iqr()-Z
+24 tBodyAcc-entropy()-X
+25 tBodyAcc-entropy()-Y
+26 tBodyAcc-entropy()-Z
+27 tBodyAcc-arCoeff()-X,1
+28 tBodyAcc-arCoeff()-X,2
+29 tBodyAcc-arCoeff()-X,3
+30 tBodyAcc-arCoeff()-X,4
+31 tBodyAcc-arCoeff()-Y,1
 31 tBodyAcc-arCoeff()-Y,2
 32 tBodyAcc-arCoeff()-Y,3
 33 tBodyAcc-arCoeff()-Y,4
@@ -568,17 +561,17 @@ Columns
 548 fBodyBodyGyroJerkMag-energy()
 549 fBodyBodyGyroJerkMag-iqr()
 550 fBodyBodyGyroJerkMag-entropy()
-551 fBodyBodyGyroJerkMag-maxInds
-552 fBodyBodyGyroJerkMag-meanFreq()
-553 fBodyBodyGyroJerkMag-skewness()
-554 fBodyBodyGyroJerkMag-kurtosis()
-555 angle(tBodyAccMean,gravity)
-556 angle(tBodyAccJerkMean),gravityMean)
-557 angle(tBodyGyroMean,gravityMean)
-558 angle(tBodyGyroJerkMean,gravityMean)
-559 angle(X,gravityMean)
-560 angle(Y,gravityMean)
-561 angle(Z,gravityMean)
-Column 564-691 measures
+552 fBodyBodyGyroJerkMag-maxInds
+553 fBodyBodyGyroJerkMag-meanFreq()
+554 fBodyBodyGyroJerkMag-skewness()
+555 fBodyBodyGyroJerkMag-kurtosis()
+556 angle(tBodyAccMean,gravity)
+557 angle(tBodyAccJerkMean),gravityMean)
+558 angle(tBodyGyroMean,gravityMean)
+559 angle(tBodyGyroJerkMean,gravityMean)
+560 angle(X,gravityMean)
+561 angle(Y,gravityMean)
+562 angle(Z,gravityMean)
+Column 563-1714 measures
 
 
