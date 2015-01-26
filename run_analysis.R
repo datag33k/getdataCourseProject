@@ -39,19 +39,14 @@ run_analysis <- function () {
   i=1
   # read data and merge to files
   for (each in testFiles) { 
-    #print(paste("dataset ", i))
-    dataTest <- read.table(testFiles[i], header=FALSE)
-    dataTrain <- read.table(trainFiles[i], header=FALSE)
-    data <- rbind(dataTest, dataTrain)
+    print(paste("dataset ", i))
+    data <- rbind(read.table(testFiles[i], header=FALSE), read.table(trainFiles[i], header=FALSE))
     finalDataSet <- cbind(finalDataSet,data)
-    
-    #print(paste("nrow dataTest/Train ", nrow(dataTest), " ", nrow(dataTrain)))
-    #print(paste("ncol dataTest/Train ", ncol(dataTest), " ", ncol(dataTrain)))
     i=i+1
   }
   # write full data set with labels
-  write.table(finalDataSet,"./merged/tidy-merged.txt", quote=FALSE, col.names=fullLabels)
-  
+  write.table(finalDataSet,"./tidy-merged.txt", quote=FALSE, col.names=fullLabels)
+   
   # calculate avg of each activity/subject combination
   finalTidySet <- sapply(finalDataSet,mean)
     
