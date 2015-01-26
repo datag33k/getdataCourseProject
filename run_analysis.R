@@ -38,7 +38,7 @@ run_analysis <- function () {
   
   i=1
   # read data and merge to files
-  for (each in 1) { #testFiles
+  for (each in testFiles) { 
     #print(paste("dataset ", i))
     dataTest <- read.table(testFiles[i], header=FALSE)
     dataTrain <- read.table(trainFiles[i], header=FALSE)
