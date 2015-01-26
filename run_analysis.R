@@ -36,8 +36,9 @@ run_analysis <- function () {
   activities <- rbind(activityTest, activityTrain)
   finalDataSet <- cbind(subjects,activities)
   
-  i=1
+ 
   # read data and merge to files
+  i=1
   for (each in testFiles) { 
     print(paste("dataset ", i))
     data <- rbind(read.table(testFiles[i], header=FALSE), read.table(trainFiles[i], header=FALSE))
@@ -47,11 +48,16 @@ run_analysis <- function () {
   # write full data set with labels
   write.table(finalDataSet,"./tidy-merged.txt", quote=FALSE, col.names=fullLabels)
    
+  # create dataset for mean from merged data
+  avgDataSet <- cbind(paste(finalDataSet[,1],"-",finalDataSet[,2]),finalDataSet[,3:1715])
+  print (paste("ncol avgDataSet ", ncol(avgDataSet))) #1714
+  
   # calculate avg of each activity/subject combination
-  finalTidySet <- sapply(finalDataSet,mean)
-    
+  tidyDataSet <- sapply(avgDataSet[,2:1714], mean)
+  print(tidyDataSet[1:20,])
+  
   # write metrics tidy dataset
-   write.table(finalTidySet,"./merged/tidy-metrics.txt", quote=FALSE, col.names=c("id","mean"))
+  write.table(tidyDataSet,"./tidy-avg.txt", quote=FALSE) #col.names=fullLabels
 }
 
 # The goal is to prepare tidy data that can be used for later analysis. 
