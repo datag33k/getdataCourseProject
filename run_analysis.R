@@ -38,19 +38,19 @@ run_analysis <- function () {
   write.table(finalDataSet,"./tidy-merged.txt", quote=FALSE, col.names=fullLabels)
   
   #print (paste("nrow finalDataSet ", nrow(finalDataSet)))
-  print (paste("ncol finalDataSet ", ncol(finalDataSet))) #1715
-  #print (paste("ncol fullLabels ", ncol(fullLabels)))
+  print (paste("ncol finalDataSet ", ncol(finalDataSet)))  # 1715
                                          
   # create dataset for mean from merged data
   avgDataSet <- cbind(paste(finalDataSet[,1],"-",finalDataSet[,2]),finalDataSet[,3:1715])
-  print (paste("ncol avgDataSet ", ncol(avgDataSet))) #1714
+  print (paste("ncol avgDataSet ", ncol(avgDataSet)))  # 1714
   
   # calculate avg of each activity/subject combination
   tidyDataSet <- sapply(avgDataSet[,2:1714], mean)
   print(tidyDataSet)
   
+  shortLabels <- c(paste(fullLabels[,1],"-",fullLabels[,2]), fullLabels[,3:1715])
   # write metrics tidy dataset
-  write.table(tidyDataSet,"./tidy-mean.txt", quote=FALSE, col.names=fullLabels[,c(paste(fullLabels[,1],fullLabels[,2]),fullLabels[,3:1715])]) #col.names=fullLabels
+  write.table(tidyDataSet,"./tidy-mean.txt", quote=FALSE, col.names=shortLabels)
 }
 
 # The goal is to prepare tidy data that can be used for later analysis. 
@@ -59,3 +59,4 @@ run_analysis <- function () {
 # the analysis, and 3) a code book called CodeBook.md, that describes the variables, the data, and any transformations or work that you 
 # performed to clean up the data. You should also 4) include a README.md in the repo with your scripts. 
 # This README.md explains how all of the scripts work and how they are connected.  
+
