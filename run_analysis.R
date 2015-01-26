@@ -50,13 +50,13 @@ run_analysis <- function () {
     i=i+1
   }
   # write full data set with labels
-  write.table(finalDataSet,"./merged/tidy-merged.txt", quote=FALSE) #col.names=fullLabels
+  write.table(finalDataSet,"./merged/tidy-merged.txt", quote=FALSE, col.names=fullLabels)
   
   # calculate avg of each activity/subject combination
   finalTidySet <- sapply(finalDataSet,mean)
     
   # write metrics tidy dataset
-   write.table(finalTidySet,"./merged/tidy-metrics.txt", quote=FALSE) #col.names=fullLabels
+   write.table(finalTidySet,"./merged/tidy-metrics.txt", quote=FALSE, col.names=c("id","mean"))
 }
 
 # The goal is to prepare tidy data that can be used for later analysis. 
