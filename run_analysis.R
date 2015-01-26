@@ -45,8 +45,7 @@ run_analysis <- function () {
   
   # write metrics tidy dataset to file with labels
   shortLabels <- c(paste(fullLabels[1],"-",fullLabels[2]), fullLabels[3:1715])
-  tidyDataSet <- rbind(tidyDataSet,shortLabels)
-  write.table(tidyDataSet,"./tidy-mean.txt", quote=FALSE) #, col.names=shortLabels)
+  write.table(tidyDataSet,"./tidy-mean.txt", quote=FALSE, col.names=shortLabels)
 }
 
 # The goal is to prepare tidy data that can be used for later analysis. 
